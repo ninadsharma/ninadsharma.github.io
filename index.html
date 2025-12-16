@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ninad Sharma - Data Engineer & Developer</title>
+    <title>Ninad Sharma - Data Engineer & Analyst</title>
     <style>
         /* Reset and Base Styles */
         * {
@@ -84,7 +84,7 @@
             align-items: center;
             padding: 0 5%;
             position: relative;
-            overflow: hidden; /* Contain the absolute element */
+            overflow-x: hidden;
         }
 
         .hero-content {
@@ -111,7 +111,7 @@
         }
 
         .hero .gradient-text {
-            background: linear-gradient(45deg, var(--accent-color), #6a5af9);
+            background: linear-gradient(45deg, var(--accent-color), #FF9800);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -209,7 +209,6 @@
             line-height: 1.8;
         }
 
-       
         /* Color-coded Skills Grid Styles */
         .skills-grid {
             display: grid;
@@ -238,22 +237,16 @@
             margin-top: 0;
         }
 
-        .category-programming {
-            background: rgba(74, 144, 226, 0.15);
-            color: #4a90e2;
-            border-left: 4px solid #4a90e2;
-        }
-
-        .category-mobile {
-            background: rgba(76, 175, 80, 0.15);
-            color: #4CAF50;
-            border-left: 4px solid #4CAF50;
-        }
-
         .category-data {
             background: rgba(255, 152, 0, 0.15);
             color: #FF9800;
             border-left: 4px solid #FF9800;
+        }
+
+        .category-programming {
+            background: rgba(74, 144, 226, 0.15);
+            color: #4a90e2;
+            border-left: 4px solid #4a90e2;
         }
 
         .category-database {
@@ -266,6 +259,12 @@
             background: rgba(233, 30, 99, 0.15);
             color: #E91E63;
             border-left: 4px solid #E91E63;
+        }
+
+        .category-mobile {
+            background: rgba(76, 175, 80, 0.15);
+            color: #4CAF50;
+            border-left: 4px solid #4CAF50;
         }
 
         /* Color-coded skill items */
@@ -281,16 +280,12 @@
             border-left: 3px solid;
         }
 
-        .skill-programming {
-            border-left-color: #4a90e2;
-        }
-
-        .skill-mobile {
-            border-left-color: #4CAF50;
-        }
-
         .skill-data {
             border-left-color: #FF9800;
+        }
+
+        .skill-programming {
+            border-left-color: #4a90e2;
         }
 
         .skill-database {
@@ -301,24 +296,23 @@
             border-left-color: #E91E63;
         }
 
+        .skill-mobile {
+            border-left-color: #4CAF50;
+        }
+
         .skill-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .skill-programming:hover {
-            background: rgba(74, 144, 226, 0.2);
-            border-color: #4a90e2;
-        }
-
-        .skill-mobile:hover {
-            background: rgba(76, 175, 80, 0.2);
-            border-color: #4CAF50;
-        }
-
         .skill-data:hover {
             background: rgba(255, 152, 0, 0.2);
             border-color: #FF9800;
+        }
+
+        .skill-programming:hover {
+            background: rgba(74, 144, 226, 0.2);
+            border-color: #4a90e2;
         }
 
         .skill-database:hover {
@@ -331,6 +325,11 @@
             border-color: #E91E63;
         }
 
+        .skill-mobile:hover {
+            background: rgba(76, 175, 80, 0.2);
+            border-color: #4CAF50;
+        }
+
         /* Extended animation delays for all skills */
         .skill-item:nth-child(2) { animation-delay: 0.1s; }
         .skill-item:nth-child(3) { animation-delay: 0.2s; }
@@ -341,19 +340,21 @@
         .skill-item:nth-child(9) { animation-delay: 0.7s; }
         .skill-item:nth-child(10) { animation-delay: 0.8s; }
         .skill-item:nth-child(11) { animation-delay: 0.9s; }
-        .skill-item:nth-child(13) { animation-delay: 1.0s; }
-        .skill-item:nth-child(14) { animation-delay: 1.1s; }
-        .skill-item:nth-child(15) { animation-delay: 1.2s; }
-        .skill-item:nth-child(16) { animation-delay: 1.3s; }
-        .skill-item:nth-child(17) { animation-delay: 1.4s; }
-        .skill-item:nth-child(18) { animation-delay: 1.5s; }
-        .skill-item:nth-child(20) { animation-delay: 1.6s; }
-        .skill-item:nth-child(21) { animation-delay: 1.7s; }
-        .skill-item:nth-child(22) { animation-delay: 1.8s; }
-        .skill-item:nth-child(24) { animation-delay: 1.9s; }
-        .skill-item:nth-child(25) { animation-delay: 2.0s; }
-        .skill-item:nth-child(26) { animation-delay: 2.1s; }
-        .skill-item:nth-child(27) { animation-delay: 2.2s; }
+        .skill-item:nth-child(12) { animation-delay: 1.0s; }
+        .skill-item:nth-child(13) { animation-delay: 1.1s; }
+        .skill-item:nth-child(14) { animation-delay: 1.2s; }
+        .skill-item:nth-child(15) { animation-delay: 1.3s; }
+        .skill-item:nth-child(16) { animation-delay: 1.4s; }
+        .skill-item:nth-child(17) { animation-delay: 1.5s; }
+        .skill-item:nth-child(18) { animation-delay: 1.6s; }
+        .skill-item:nth-child(20) { animation-delay: 1.7s; }
+        .skill-item:nth-child(21) { animation-delay: 1.8s; }
+        .skill-item:nth-child(22) { animation-delay: 1.9s; }
+        .skill-item:nth-child(23) { animation-delay: 2.0s; }
+        .skill-item:nth-child(24) { animation-delay: 2.1s; }
+        .skill-item:nth-child(25) { animation-delay: 2.2s; }
+        .skill-item:nth-child(26) { animation-delay: 2.3s; }
+        .skill-item:nth-child(27) { animation-delay: 2.4s; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.9); }
@@ -377,7 +378,6 @@
                 font-size: 0.85rem;
             }
         }
-
 
         /* Experience Section */
         .timeline {
@@ -405,6 +405,7 @@
         .timeline-item:nth-child(1) { animation-delay: 0.1s; }
         .timeline-item:nth-child(2) { animation-delay: 0.2s; }
         .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
 
         @keyframes slideInLeft {
             from {
@@ -545,191 +546,160 @@
             justify-content: center;
             gap: 2rem;
             margin-top: 2rem;
+		}
+		    .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all var(--transition-speed);
+    }
+
+    .contact-link:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+    }
+
+    /* Fixed footer arrow */
+    footer {
+        text-align: center;
+        padding: 0px;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    body {
+        padding-bottom: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        nav ul {
+            gap: 1rem;
         }
 
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all var(--transition-speed);
+        .about-content {
+            grid-template-columns: 1fr;
         }
 
-        .contact-link:hover {
-            color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-        /* Fixed footer arrow */
-
-	footer {
-	    text-align: center;
-	    padding: 0px;
-	    color: var(--text-secondary);
-	    font-size: 0.9rem;
-	    margin: 0 auto; /* Centers the footer container */
-	    max-width: 1200px; /* Matches your section max-width */
-	}
-
-        body {
-            padding-bottom: 20px; /* Adjust based on footer height */
+        .hero h1 {
+            font-size: 2.5rem;
         }
 
-
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                gap: 0.75rem;
-            }
-
-            .skill-item {
-                padding: 0.8rem;
-                font-size: 0.9rem;
-            }
+        .section-title {
+            font-size: 2rem;
         }
 
-        /* Loading Animation */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-color);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeOut 1s ease-out 2s forwards;
+        .skills-grid {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 0.75rem;
         }
 
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
+        .skill-item {
+            padding: 0.8rem;
+            font-size: 0.9rem;
         }
+    }
 
-        .loader-content {
-            text-align: center;
-        }
+    /* Loading Animation */
+    .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--primary-color);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: fadeOut 1s ease-out 2s forwards;
+    }
 
-        .loader-circle {
-            width: 50px;
-            height: 50px;
-            border: 3px solid var(--secondary-color);
-            border-top-color: var(--accent-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+            visibility: hidden;
         }
+    }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+    .loader-content {
+        text-align: center;
+    }
 
-        /* Add ripple animation to CSS */
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
+    .loader-circle {
+        width: 50px;
+        height: 50px;
+        border: 3px solid var(--secondary-color);
+        border-top-color: var(--accent-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    /* Add ripple animation to CSS */
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
         }
-    </style>
-</head>
-<body>
-    <!-- Loading Animation -->
-    <div class="loader">
-        <div class="loader-content">
-            <div class="loader-circle"></div>
-            <p>Engineering solutions that scale...</p>
+    }
+</style>
+</head> <body> <!-- Loading Animation --> <div class="loader"> <div class="loader-content"> <div class="loader-circle"></div> <p>Engineering solutions that scale...</p> </div> </div>
+<!-- Navigation -->
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Domains</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Hi! <span class="gradient-text">Ninad Sharma</span> this side</h1>
+        <p>Data Engineer & Analyst specializing in scalable data pipelines, ETL/ELT design, and cloud-based analytics solutions. Proven expertise building robust data systems processing 2TB+ monthly datasets with 40% efficiency gains. Ex-Beiersdorf (Germany) with 3+ years optimizing data workflows using Python, SQL, AWS/GCP, and Power BI/Tableau.</p>
+        <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="https://github.com/ninadsharma" class="btn btn-secondary" target="_blank">View GitHub</a>
         </div>
     </div>
+</section>
 
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Domains</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Hi! <span class="gradient-text">Ninad Sharma</span> this side</h1>
-                <p>Software Engineer specializing in high-performance distributed systems, algorithmic optimization, and scalable data infrastructure. Expert in system design, low-latency applications, and building robust backend services that handle millions of operations with 99.9% uptime.</p>
-
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                <a href="https://github.com/ninadsharma" class="btn btn-secondary" target="_blank">View GitHub</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 5v14M19 12l-7 7-7-7"/>
-            </svg>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Software Engineer specializing in high-performance systems, distributed computing, and algorithmic optimization. My foundation spans data engineering to application development, with deep expertise in building low-latency, scalable solutions that handle millions of operations.</p>
-                <p>Strong in data structures, system design, and computational problem-solving. Experienced in optimizing Python/Java applications for performance, designing robust APIs, and implementing efficient data pipelines that reduce processing time by 60%.</p>
-                <p>Currently mastering advanced algorithms, distributed systems architecture, and high-frequency trading principles. Passionate about writing clean, efficient code that solves complex technical challenges at scale.</p>
-            </div>
-                <!-- Enhanced Color-Coded Skills Grid -->
+<!-- Skills Section -->
+<section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
     <div class="skills-grid">
-        <div class="category-header category-programming">
-            <span>⚡ Programming & Backend</span>
-        </div>
-        <div class="skill-item skill-programming">Python</div>
-        <div class="skill-item skill-programming">Java</div>
-        <div class="skill-item skill-programming">JavaScript</div>
-        <div class="skill-item skill-programming">C/C++</div>
-        <div class="skill-item skill-programming">Node.js</div>
-        
-        <div class="category-header category-mobile">
-            <span>📱 Mobile Development</span>
-        </div>
-        <div class="skill-item skill-mobile">Flutter</div>
-        <div class="skill-item skill-mobile">Dart</div>
-        <div class="skill-item skill-mobile">Firebase</div>
-        <div class="skill-item skill-mobile">React Native</div>
-        
         <div class="category-header category-data">
-            <span>📊 Data & Analytics</span>
+            <span>📊 Data Engineering & Analytics</span>
         </div>
-        <div class="skill-item skill-data">SQL</div>
-        <div class="skill-item skill-data">Tableau</div>
+        <div class="skill-item skill-data">ETL/ELT Design</div>
+        <div class="skill-item skill-data">SQL (Advanced)</div>
+        <div class="skill-item skill-data">Python (Pandas, PySpark)</div>
+        <div class="skill-item skill-data">Airflow</div>
         <div class="skill-item skill-data">Power BI</div>
-        <div class="skill-item skill-data">Pandas</div>
-        <div class="skill-item skill-data">NumPy</div>
-        <div class="skill-item skill-data">Machine Learning</div>
+        <div class="skill-item skill-data">Tableau</div>
+        <div class="skill-item skill-data">Data Governance</div>
+        
+        <div class="category-header category-programming">
+            <span>⚡ Cloud & Backend</span>
+        </div>
+        <div class="skill-item skill-programming">AWS (Lambda, S3)</div>
+        <div class="skill-item skill-programming">GCP (BigQuery)</div>
+        <div class="skill-item skill-programming">Node.js</div>
+        <div class="skill-item skill-programming">REST APIs</div>
+        <div class="skill-item skill-programming">Microservices</div>
+        <div class="skill-item skill-programming">CI/CD</div>
         
         <div class="category-header category-database">
             <span>🗄️ Databases</span>
@@ -739,289 +709,247 @@
         <div class="skill-item skill-database">MongoDB</div>
         
         <div class="category-header category-tools">
-            <span>🎨 Design & Tools</span>
+            <span>🔧 Tools & Visualization</span>
         </div>
-        <div class="skill-item skill-tools">Adobe XD</div>
-        <div class="skill-item skill-tools">Figma</div>
+        <div class="skill-item skill-tools">Matplotlib</div>
         <div class="skill-item skill-tools">Git/GitHub</div>
         <div class="skill-item skill-tools">Docker</div>
+        <div class="skill-item skill-tools">Figma</div>
+        
+        <div class="category-header category-mobile">
+            <span>📱 Mobile Development</span>
+        </div>
+        <div class="skill-item skill-mobile">Flutter</div>
+        <div class="skill-item skill-mobile">Dart</div>
+        <div class="skill-item skill-mobile">Firebase</div>
     </div>
+</section>
 
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <h2 class="section-title">Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Data Analyst</h3>
-                    <p class="company">Beiersdorf, Germany</p>
-                    <p class="duration">Nov 2023 - Jul 2024</p>
-                    <p>Data Science & Computational Science tasks, analyzing complex datasets and deriving actionable insights.</p>
-                    <div style="margin-top: 1rem;">
-                        <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
-                            <li>Conducted data-driven analyses to identify consumer and market trends, supporting strategic decision-making across Europe & North America markets</li>
-                            <li>Created and maintained interactive dashboards in Power BI, reducing reporting time by 40% and improving stakeholder access to real-time insights</li>
-                            <li>Performed comprehensive data cleansing, processing, and enrichment to ensure 99%+ data quality standards across multiple datasets</li>
-                            <li>Collaborated with cross-functional teams (sales, marketing, finance) to gather requirements and deliver analytical solutions that increased Net Sales opportunities</li>
-                            <li>Developed automated data workflows using Python and SQL, reducing manual processing time by 60% and minimizing errors</li>
-                            <li>Presented complex analytical findings to non-technical stakeholders through clear visualizations and actionable recommendations</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Application Developer I</h3>
-                    <p class="company">EdithTech Infrastructure</p>
-                    <p class="duration">Jul 2022 - Feb 2023</p>
-                    <p>Focused on data science and computational science, developing robust applications and analytical solutions.</p>
-                    <div style="margin-top: 1rem;">
-                        <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
-                            <li>Designed and developed scalable applications using Python, JavaScript, and Node.js, improving system performance by 35%</li>
-                            <li>Implemented CI/CD pipelines and automated testing frameworks, reducing deployment times by 50% and increasing release frequency</li>
-                            <li>Built and maintained core infrastructure services, ensuring 99.9% uptime for critical business applications</li>
-                            <li>Provided technical support and troubleshooting for production environments, resolving issues with average response time under 2 hours</li>
-                            <li>Collaborated with QA teams to conduct comprehensive testing, identifying and fixing bugs before production deployment</li>
-                            <li>Created technical documentation and user guides, improving team onboarding efficiency by 30%</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <h3>Application Engineer</h3>
-                    <p class="company">EMS Pvt. Ltd.</p>
-                    <p class="duration">Oct 2020 - Nov 2021</p>
-                    <p>Specialized in User Experience Design, creating wireframes, prototypes, and user flows for optimal user experience.</p>
-                    <div style="margin-top: 1rem;">
-                        <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
-                            <li>Led UX design initiatives, creating wireframes, prototypes, and user flows that improved user satisfaction scores by 45%</li>
-                            <li>Translated client requirements into technical specifications, successfully delivering 15+ custom software solutions</li>
-                            <li>Conducted user research and usability testing, gathering feedback from 200+ users to inform design decisions</li>
-                            <li>Developed and maintained design systems using Adobe XD and Figma, ensuring consistency across 20+ applications</li>
-                            <li>Provided ongoing technical support and training to end-users, reducing support tickets by 25% through proactive education</li>
-                            <li>Identified process improvement opportunities in software development lifecycle, implementing changes that reduced project delivery time by 20%</li>
-                        </ul>
-                    </div>
+<!-- Experience Section -->
+<section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Data Engineer</h3>
+                <p class="company">Beiersdorf (Germany) | Hamburg, Germany</p>
+                <p class="duration">Nov 2023 – July 2024</p>
+                <p>Selected for engagement with German HQ to modernize marketing data infrastructure across DACH region.</p>
+                <div style="margin-top: 1rem;">
+                    <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
+                        <li>Designed and maintained automated ETL pipelines using Python and SQL, processing 2TB+ monthly consumer datasets from 15+ markets</li>
+                        <li>Reduced manual reporting time by 40% and enabled real-time decision-making with scalable data models</li>
+                        <li>Built analytics dashboards in Power BI/Tableau, influencing product strategy with actionable insights from multi-source data aggregation</li>
+                        <li>Implemented enterprise-grade data governance standards across pipelines, ensuring compliance for 50+ stakeholder reports across Europe</li>
+                        <li>Collaborated with cross-functional teams across 3+ time zones, translating business requirements into optimized technical solutions</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2 class="section-title">Domains</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">📱</div>
-                <div class="project-content">
-                    <h3>Mobile App Development</h3>
-                    <p>Cross-platform mobile applications built with Flutter and Firebase, focusing on user-friendly interfaces and robust functionality.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Flutter</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Dart</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">📊</div>
-                <div class="project-content">
-                    <h3>Data Analytics Dashboard</h3>
-                    <p>Interactive data visualization projects using Tableau and Power BI to transform complex data into actionable insights.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Tableau</span>
-                        <span class="tech-tag">Power BI</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">⚡</div>
-                <div class="project-content">
-                    <h3>Backend API Development</h3>
-                    <p>RESTful APIs and server-side applications using Node.js and SQL databases for scalable web solutions.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">API</span>
-                    </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Data Analyst</h3>
+                <p class="company">EdithTech Infrastructure | India</p>
+                <p class="duration">Feb 2023 – Nov 2023</p>
+                <p>Developed and maintained analytics dashboards for internal infrastructure tools supporting 500+ concurrent users.</p>
+                <div style="margin-top: 1rem;">
+                    <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
+                        <li>Performed advanced SQL optimization on core application queries, reducing latency by 25% (200ms to 150ms)</li>
+                        <li>Improved dashboard performance for real-time analytics across 1M+ data points</li>
+                        <li>Created data pipelines and ETL workflows for multi-source data aggregation, automating manual reporting processes</li>
+                        <li>Built CI/CD pipelines for automated testing and data validation, reducing deployment cycle time by 30%</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="contact-content">
-            <p>I'm always interested in hearing about new opportunities, collaborating on innovative projects, or discussing the latest in tech and software development.</p>
-            <div class="contact-links">
-                <a href="mailto:ninadsharma18@gmail.com" class="contact-link">
-                    <span>📧</span>
-                    <span>Email</span>
-                </a>
-                <a href="https://linkedin.com/in/ninadsharma" class="contact-link" target="_blank">
-                    <span>💼</span>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/ninadsharma" class="contact-link" target="_blank">
-                    <span>💻</span>
-                    <span>GitHub</span>
-                </a>
-                <a href="tel:+919993267676" class="contact-link">
-                    <span>📱</span>
-                    <span>+91 99932 67676</span>
-                </a>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Data Analyst & Backend Developer</h3>
+                <p class="company">EdithTech Infrastructure | India</p>
+                <p class="duration">July 2022 – Feb 2023</p>
+                <p>Analyzed complex datasets and derived actionable insights using SQL and Python for business stakeholders.</p>
+                <div style="margin-top: 1rem;">
+                    <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
+                        <li>Optimized database queries and implemented indexing strategies, improving query performance by 25% for analytics workflows</li>
+                        <li>Developed backend microservices using Node.js, handling 10,000+ daily requests with robust monitoring</li>
+                    </ul>
+                </div>
             </div>
-            <p style="margin-top: 2rem; color:
-            <p style="margin-top: 2rem; color: var(--text-secondary);">
-                Based in India | Open to Opportunities and Relocation
-            </p>
         </div>
-    </section>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Mobile Developer</h3>
+                <p class="company">EMS Pvt. Ltd. | India</p>
+                <p class="duration">Oct 2020 – Nov 2021</p>
+                <p>Built and deployed cross-platform mobile prototypes using Flutter & Firebase.</p>
+                <div style="margin-top: 1rem;">
+                    <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
+                        <li>Reduced MVP development time by 30% and delivered to market in 6 weeks</li>
+                        <li>Designed user flows and technical specifications in Figma for 8-person engineering team</li>
+                        <li>Conducted stakeholder presentations to validate product-market fit with 50+ beta testers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Ninad Sharma. Built with passion and modern web technologies.</p>
-    </footer>
+<!-- Projects Section -->
+<section id="projects">
+    <h2 class="section-title">Domains</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-image">📊</div>
+            <div class="project-content">
+                <h3>Data Engineering & Analytics</h3>
+                <p>ETL/ELT pipelines, data modeling, and cloud-based analytics solutions processing terabyte-scale datasets with 40% efficiency gains.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">Power BI</span>
+                </div>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-image">⚡</div>
+            <div class="project-content">
+                <h3>Backend API Development</h3>
+                <p>RESTful APIs and server-side applications using Node.js and SQL databases for scalable web solutions handling 10,000+ daily requests.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Microservices</span>
+                </div>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-image">📱</div>
+            <div class="project-content">
+                <h3>Mobile App Development</h3>
+                <p>Cross-platform mobile applications built with Flutter and Firebase, focusing on user-friendly interfaces and robust functionality.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Flutter</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">Dart</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-	
-    <script>
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+<!-- Contact Section -->
+<section id="contact">
+    <h2 class="section-title">Let’s Connect</h2>
+    <div class="contact-content">
+        <p>I'm always interested in hearing about new Data Engineering and Analytics opportunities, collaborating on innovative projects, or discussing the latest in data infrastructure and scalable systems.</p>
+        <div class="contact-links">
+            <a href="mailto:ninadsharma18@gmail.com" class="contact-link">
+                <span>📧</span>
+                <span>Email</span>
+            </a>
+            <a href="https://linkedin.com/in/ninadsharma" class="contact-link" target="_blank">
+                <span>💼</span>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/ninadsharma" class="contact-link" target="_blank">
+                <span>💻</span>
+                <span>GitHub</span>
+            </a>
+            <a href="tel:+919993267676" class="contact-link">
+                <span>📱</span>
+                <span>+91 99932 67676</span>
+            </a>
+        </div>
+        <p style="margin-top: 2rem; color: var(--text-secondary);">
+            Based in Indore, India | Open to Pan-India Relocation
+        </p>
+    </div>
+</section>
 
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(10, 10, 10, 0.98)';
-                nav.style.padding = '1rem 5%';
-            } else {
-                nav.style.background = 'rgba(10, 10, 10, 0.95)';
-                nav.style.padding = '1.5rem 5%';
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Ninad Sharma. Built with passion and modern web technologies.</p>
+</footer>
+
+<script>
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
+    });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements that should animate on scroll
-        document.querySelectorAll('.timeline-item, .project-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Add parallax effect to hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Add hover effect to skill items
-        document.querySelectorAll('.skill-item').forEach(skill => {
-            skill.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.05) translateY(-5px)';
-            });
-            
-            skill.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1) translateY(0)';
-            });
-        });
-
-        // Add click animation to buttons
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: rgba(255, 255, 255, 0.3);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    pointer-events: none;
-                `;
-                
-                this.style.position = 'relative';
-                this.style.overflow = 'hidden';
-                this.appendChild(ripple);
-                
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
-
-        // Add hover effect to skill categories in detailed skills section
-        document.querySelectorAll('.skill-category').forEach(category => {
-            category.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.02)';
-            });
-            
-            category.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Animate skill bars when skills section comes into view
-        const skillsSection = document.querySelector('#skills');
-        const skillBars = document.querySelectorAll('.skill-progress');
-
-        const skillsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    skillBars.forEach(bar => {
-                        const width = bar.getAttribute('data-width');
-                        setTimeout(() => {
-                            bar.style.width = width;
-                        }, 200);
-                    });
-                }
-            });
-        }, { threshold: 0.5 });
-
-        if (skillsSection) {
-            skillsObserver.observe(skillsSection);
+    // Add scroll effect to navigation
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 100) {
+            nav.style.background = 'rgba(10, 10, 10, 0.98)';
+            nav.style.padding = '1rem 5%';
+        } else {
+            nav.style.background = 'rgba(10, 10, 10, 0.95)';
+            nav.style.padding = '1.5rem 5%';
         }
-    </script>
-</body>
-</html>
+    });
 
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements that should animate on scroll
+    document.querySelectorAll('.timeline-item, .project-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+
+    // Add ripple effect to buttons
+    document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                transform: scale(0);
+                animation: ripple 0.6s linear;
+                pointer-events: none;
+            `;
+            
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+</script>
+</body> </html>
