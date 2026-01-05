@@ -3,940 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ninad Sharma - Data Engineer & Analyst</title>
+    <base href="$__base">
+    <title>Ninad Sharma - Data Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
-            --primary-color: #0a0a0a;
-            --secondary-color: #1a1a1a;
-            --accent-color: #4a90e2;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
-            --transition-speed: 0.3s;
+            --bg-main: #111723;
+            --bg-card: rgba(17, 23, 35, 0.85);
+            --text-main: #F8F9FA;
+            --text-muted: #B0B7C3;
+            --accent-gold: #F8B909;
+            --accent-bronze: #AF9A4A;
+            --accent-orange: #F38909;
+            --border-subtle: rgba(175, 154, 74, 0.2);
         }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--primary-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1.5rem 5%;
-            transition: all var(--transition-speed);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: flex-end;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color var(--transition-speed);
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-color);
-            transition: width var(--transition-speed);
-        }
-
-        nav a:hover {
-            color: var(--text-primary);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 5%;
-            position: relative;
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(243,137,9,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(175,154,74,0.08) 0%, transparent 50%),
+                linear-gradient(135deg, #0F1620 0%, var(--bg-main) 50%, #1A2335 100%);
+            color: var(--text-main); line-height: 1.65; position: relative; 
             overflow-x: hidden;
         }
-
-        .hero-content {
-            max-width: 800px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        .hero .gradient-text {
-            background: linear-gradient(45deg, var(--accent-color), #FF9800);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 3s ease-in-out infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { filter: hue-rotate(0deg); }
-            50% { filter: hue-rotate(30deg); }
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all var(--transition-speed);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--accent-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #3a7bd5;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 2px solid var(--text-secondary);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-            transform: translateY(-2px);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
+        body::before {
             content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--accent-color);
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: 
+                conic-gradient(from 0deg at 30% 30%, transparent 0deg, rgba(243,137,9,0.03) 90deg, transparent 180deg),
+                conic-gradient(from 180deg at 70% 70%, transparent 180deg, rgba(175,154,74,0.02) 270deg, transparent 360deg);
+            z-index: -2; pointer-events: none;
         }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-rows: auto auto;
-            gap: 0;
-            align-items: start;
-        }
-
-        .about-text {
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        /* Color-coded Skills Grid Styles */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-            position: relative;
-        }
-
-        /* Category headers with color coding */
-        .category-header {
-            grid-column: 1 / -1;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all var(--transition-speed);
-        }
-
-        .category-header:first-child {
-            margin-top: 0;
-        }
-
-        .category-data {
-            background: rgba(255, 152, 0, 0.15);
-            color: #FF9800;
-            border-left: 4px solid #FF9800;
-        }
-
-        .category-programming {
-            background: rgba(74, 144, 226, 0.15);
-            color: #4a90e2;
-            border-left: 4px solid #4a90e2;
-        }
-
-        .category-database {
-            background: rgba(156, 39, 176, 0.15);
-            color: #9C27B0;
-            border-left: 4px solid #9C27B0;
-        }
-
-        .category-tools {
-            background: rgba(233, 30, 99, 0.15);
-            color: #E91E63;
-            border-left: 4px solid #E91E63;
-        }
-
-        .category-mobile {
-            background: rgba(76, 175, 80, 0.15);
-            color: #4CAF50;
-            border-left: 4px solid #4CAF50;
-        }
-
-        /* Color-coded skill items */
-        .skill-item {
-            background: var(--secondary-color);
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            transition: all var(--transition-speed);
-            animation: fadeIn 0.5s ease-out;
-            animation-fill-mode: both;
-            border: 1px solid transparent;
-            border-left: 3px solid;
-        }
-
-        .skill-data {
-            border-left-color: #FF9800;
-        }
-
-        .skill-programming {
-            border-left-color: #4a90e2;
-        }
-
-        .skill-database {
-            border-left-color: #9C27B0;
-        }
-
-        .skill-tools {
-            border-left-color: #E91E63;
-        }
-
-        .skill-mobile {
-            border-left-color: #4CAF50;
-        }
-
-        .skill-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .skill-data:hover {
-            background: rgba(255, 152, 0, 0.2);
-            border-color: #FF9800;
-        }
-
-        .skill-programming:hover {
-            background: rgba(74, 144, 226, 0.2);
-            border-color: #4a90e2;
-        }
-
-        .skill-database:hover {
-            background: rgba(156, 39, 176, 0.2);
-            border-color: #9C27B0;
-        }
-
-        .skill-tools:hover {
-            background: rgba(233, 30, 99, 0.2);
-            border-color: #E91E63;
-        }
-
-        .skill-mobile:hover {
-            background: rgba(76, 175, 80, 0.2);
-            border-color: #4CAF50;
-        }
-
-        /* Extended animation delays for all skills */
-        .skill-item:nth-child(2) { animation-delay: 0.1s; }
-        .skill-item:nth-child(3) { animation-delay: 0.2s; }
-        .skill-item:nth-child(4) { animation-delay: 0.3s; }
-        .skill-item:nth-child(5) { animation-delay: 0.4s; }
-        .skill-item:nth-child(6) { animation-delay: 0.5s; }
-        .skill-item:nth-child(8) { animation-delay: 0.6s; }
-        .skill-item:nth-child(9) { animation-delay: 0.7s; }
-        .skill-item:nth-child(10) { animation-delay: 0.8s; }
-        .skill-item:nth-child(11) { animation-delay: 0.9s; }
-        .skill-item:nth-child(12) { animation-delay: 1.0s; }
-        .skill-item:nth-child(13) { animation-delay: 1.1s; }
-        .skill-item:nth-child(14) { animation-delay: 1.2s; }
-        .skill-item:nth-child(15) { animation-delay: 1.3s; }
-        .skill-item:nth-child(16) { animation-delay: 1.4s; }
-        .skill-item:nth-child(17) { animation-delay: 1.5s; }
-        .skill-item:nth-child(18) { animation-delay: 1.6s; }
-        .skill-item:nth-child(20) { animation-delay: 1.7s; }
-        .skill-item:nth-child(21) { animation-delay: 1.8s; }
-        .skill-item:nth-child(22) { animation-delay: 1.9s; }
-        .skill-item:nth-child(23) { animation-delay: 2.0s; }
-        .skill-item:nth-child(24) { animation-delay: 2.1s; }
-        .skill-item:nth-child(25) { animation-delay: 2.2s; }
-        .skill-item:nth-child(26) { animation-delay: 2.3s; }
-        .skill-item:nth-child(27) { animation-delay: 2.4s; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-                gap: 0.75rem;
-            }
-            
-            .skill-item {
-                padding: 0.8rem;
-                font-size: 0.9rem;
-            }
-            
-            .category-header {
-                padding: 0.6rem 0.8rem;
-                font-size: 0.85rem;
-            }
-        }
-
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background: var(--accent-color);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: slideInLeft 0.6s ease-out forwards;
-        }
-
-        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
-        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent-color);
-            transform: translateX(-50%);
-        }
-
-        .timeline-content {
-            background: var(--secondary-color);
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: all var(--transition-speed);
-        }
-
-        .timeline-content:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .timeline-content h3 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .company {
-            color: var(--accent-color);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .duration {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--secondary-color);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all var(--transition-speed);
-            opacity: 0;
-            animation: fadeInScale 0.6s ease-out forwards;
-        }
-
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--accent-color);
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .project-content p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .project-tech {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tech-tag {
-            background: var(--primary-color);
-            color: var(--accent-color);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            border: 1px solid var(--accent-color);
-        }
-
-        /* Contact Section */
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-		}
-		    .contact-link {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--text-secondary);
-        text-decoration: none;
-        transition: all var(--transition-speed);
-    }
-
-    .contact-link:hover {
-        color: var(--accent-color);
-        transform: translateY(-3px);
-    }
-
-    /* Fixed footer arrow */
-    footer {
-        text-align: center;
-        padding: 0px;
-        color: var(--text-secondary);
-        font-size: 0.9rem;
-        margin: 0 auto;
-        max-width: 1200px;
-    }
-
-    body {
-        padding-bottom: 20px;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        nav ul {
-            gap: 1rem;
-        }
-
-        .about-content {
-            grid-template-columns: 1fr;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-        }
-
-        .skills-grid {
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 0.75rem;
-        }
-
-        .skill-item {
-            padding: 0.8rem;
-            font-size: 0.9rem;
-        }
-    }
-
-    /* Loading Animation */
-    .loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--primary-color);
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        animation: fadeOut 1s ease-out 2s forwards;
-    }
-
-    @keyframes fadeOut {
-        to {
-            opacity: 0;
-            visibility: hidden;
-        }
-    }
-
-    .loader-content {
-        text-align: center;
-    }
-
-    .loader-circle {
-        width: 50px;
-        height: 50px;
-        border: 3px solid var(--secondary-color);
-        border-top-color: var(--accent-color);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin: 0 auto 1rem;
-    }
-
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
-
-    /* Add ripple animation to CSS */
-    @keyframes ripple {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-</style>
-</head> <body> <!-- Loading Animation --> <div class="loader"> <div class="loader-content"> <div class="loader-circle"></div> <p>Engineering solutions that scale...</p> </div> </div>
-<!-- Navigation -->
-<nav>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Domains</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
-
-<!-- Hero Section -->
-<section id="home" class="hero">
-    <div class="hero-content">
-        <h1>Hi! <span class="gradient-text">Ninad Sharma</span> this side</h1>
-        <p>Data Engineer & Analyst specializing in scalable data pipelines, ETL/ELT design, and cloud-based analytics solutions. Proven expertise building robust data systems processing 2TB+ monthly datasets with 40% efficiency gains. Ex-Beiersdorf (Germany) with 3+ years optimizing data workflows using Python, SQL, AWS/GCP, and Power BI/Tableau.</p>
-        <div class="cta-buttons">
-            <a href="#contact" class="btn btn-primary">Get In Touch</a>
-            <a href="https://github.com/ninadsharma" class="btn btn-secondary" target="_blank">View GitHub</a>
-        </div>
-    </div>
-</section>
-
-<!-- Skills Section -->
-<section id="skills">
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="skills-grid">
-        <div class="category-header category-data">
-            <span>📊 Data Engineering & Analytics</span>
-        </div>
-        <div class="skill-item skill-data">ETL/ELT Design</div>
-        <div class="skill-item skill-data">SQL (Advanced)</div>
-        <div class="skill-item skill-data">Python (Pandas, PySpark)</div>
-        <div class="skill-item skill-data">Airflow</div>
-        <div class="skill-item skill-data">Power BI</div>
-        <div class="skill-item skill-data">Tableau</div>
-        <div class="skill-item skill-data">Data Governance</div>
-
-		 <div class="category-header category-database">
-            <span>🗄️ Databases</span>
-        </div>
-        <div class="skill-item skill-database">MySQL</div>
-        <div class="skill-item skill-database">PostgreSQL</div>
-        <div class="skill-item skill-database">MongoDB</div>
         
-        <div class="category-header category-tools">
-            <span>🔧 Tools & Visualization</span>
-        </div>
-        <div class="skill-item skill-tools">Matplotlib</div>
-        <div class="skill-item skill-tools">Git/GitHub</div>
-        <div class="skill-item skill-tools">Docker</div>
-        <div class="skill-item skill-tools">Figma</div>
-        <div class="category-header category-programming">
-            <span>⚡ Cloud & Backend</span>
-        </div>
-        <div class="skill-item skill-programming">AWS (Lambda, S3)</div>
-        <div class="skill-item skill-programming">GCP (BigQuery)</div>
-        <div class="skill-item skill-programming">Node.js</div>
-        <div class="skill-item skill-programming">REST APIs</div>
-        <div class="skill-item skill-programming">Microservices</div>
-        <div class="skill-item skill-programming">CI/CD</div>
+        nav { 
+            position: fixed; top: 0; width: 100%; background: rgba(17,23,35,0.96); 
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle); 
+            z-index: 100; padding: 20px 0; 
+        }
+        .container { max-width: 1150px; margin: 0 auto; padding: 0 28px; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.35rem; font-weight: 600; background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 400; transition: all 0.3s; position: relative; }
+        .nav-links a:hover { color: var(--accent-gold); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange)); transition: width 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
         
-       
+        main { margin-top: 104px; }
+        section { padding: 110px 0; }
+        .intro { padding-top: 140px; padding-bottom: 180px; text-align: center; }
+        h1 { 
+            font-size: clamp(3rem, 8vw, 5.25rem); font-weight: 700; 
+            background: linear-gradient(135deg, var(--text-main) 0%, var(--accent-gold) 60%); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+            margin-bottom: 24px; letter-spacing: -0.03em;
+        }
+        .intro-lead { 
+            font-size: clamp(1.2rem, 3vw, 1.5rem); color: var(--text-muted); 
+            max-width: 680px; margin: 0 auto 36px; font-weight: 400; 
+        }
+        .metric { 
+            display: inline-flex; flex-direction: column; align-items: center; 
+            margin: 0 16px; padding: 24px 20px; background: var(--bg-card); 
+            border-radius: 16px; border: 1px solid var(--border-subtle); min-width: 140px;
+        }
+        .metric-value { font-size: 1.6rem; font-weight: 700; color: var(--accent-gold); margin-bottom: 4px; }
+        .metric-label { font-size: 0.88rem; color: var(--text-muted); }
+        .cta-group { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 56px; }
+        .btn { 
+            padding: 16px 36px; border: 1px solid var(--border-subtle); border-radius: 12px; 
+            text-decoration: none; font-weight: 500; font-size: 1rem; transition: all 0.3s; 
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-primary { background: rgba(243,137,9,0.12); color: var(--text-main); border-color: rgba(243,137,9,0.4); }
+        .btn-primary:hover { background: rgba(243,137,9,0.25); border-color: var(--accent-orange); transform: translateY(-2px); }
+        .btn-secondary { background: transparent; color: var(--text-muted); }
+        .btn-secondary:hover { background: rgba(175,154,74,0.12); color: var(--text-main); border-color: var(--accent-bronze); }
         
-        <div class="category-header category-mobile">
-            <span>📱 Mobile Development</span>
+        h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; color: var(--text-main); margin-bottom: 32px; text-align: center; }
+        .section-subtitle { text-align: center; color: var(--text-muted); max-width: 700px; margin: 0 auto 72px; font-size: 1.15rem; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; margin-top: 64px; }
+        .card { 
+            background: var(--bg-card); backdrop-filter: blur(16px); 
+            padding: 40px; border-radius: 24px; border: 1px solid var(--border-subtle); 
+            transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        .card:hover { 
+            transform: translateY(-8px) scale(1.02); border-color: rgba(175,154,74,0.4); 
+            box-shadow: 0 32px 80px rgba(243,137,9,0.15);
+        }
+        .card-title { font-size: 1.4rem; font-weight: 600; color: var(--text-main); margin-bottom: 20px; }
+        .card-meta { color: var(--accent-bronze); font-size: 1rem; margin-bottom: 24px; font-weight: 500; }
+        .card-list { list-style: none; color: var(--text-muted); }
+        .card-list li { margin-bottom: 16px; padding-left: 24px; position: relative; }
+        .card-list li::before { 
+            content: ''; position: absolute; left: 0; top: 4px; width: 6px; height: 6px; 
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange)); 
+            border-radius: 50%; 
+        }
+        
+        .education-grid { grid-template-columns: 1fr; max-width: 750px; margin: 0 auto; gap: 28px; }
+        
+        .contact { text-align: center; padding-bottom: 160px; }
+        .contact-details { 
+            background: var(--bg-card); padding: 40px; border-radius: 20px; 
+            border: 1px solid var(--border-subtle); max-width: 500px; margin: 0 auto 48px;
+        }
+        .contact-details strong { color: var(--accent-gold); }
+        
+        /* Scroll animations */
+        section { opacity: 0; transform: translateY(48px); transition: all 0.8s cubic-bezier(0.34,1.56,0.64,1); }
+        section.visible { opacity: 1; transform: translateY(0); }
+        
+        @media (max-width: 768px) { 
+            .container { padding: 0 24px; } 
+            .cta-group { flex-direction: column; align-items: center; gap: 16px; }
+            .metric { margin: 8px 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">Ninad Sharma</div>
+                <ul class="nav-links">
+                    <li><a href="#intro">Intro</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="skill-item skill-mobile">Flutter</div>
-        <div class="skill-item skill-mobile">Dart</div>
-        <div class="skill-item skill-mobile">Firebase</div>
-    </div>
-</section>
+    </nav>
+    
+    <main>
+        <section id="intro" class="intro">
+            <div class="container">
+                <h1>Data Engineer</h1>
+                <p class="intro-lead">
+                    Engineering scalable data systems that drive business outcomes. 
+                    <strong>Ex-Beiersdorf Germany</strong>—delivered 2TB ETL pipelines serving 15 EU markets 
+                    with <strong>40% efficiency gains</strong> through cloud-native architecture.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin: 48px 0;">
+                    <div class="metric">
+                        <div class="metric-value">2TB+</div>
+                        <div class="metric-label">Monthly Processing</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">40%</div>
+                        <div class="metric-label">Efficiency Gain</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">15</div>
+                        <div class="metric-label">Markets Served</div>
+                    </div>
+                </div>
+                <div class="cta-group">
+                    <a href="mailto:ninadsharma18@gmail.com" class="btn btn-primary">📧 Discuss Opportunities</a>
+                    <a href="https://linkedin.com/in/ninadsharma" target="_blank" class="btn btn-secondary">💼 View Profile</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <div class="container">
+                <h2>Technical Stack</h2>
+                <p class="section-subtitle">Production data engineering capabilities</p>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-title">Data Pipelines & Processing</div>
+                        <ul class="card-list">
+                            <li>ETL/ELT orchestration (Airflow DAGs)</li>
+                            <li>Advanced SQL optimization & analytics</li>
+                            <li>PySpark/Pandas at terabyte scale</li>
+                            <li>15-market parallel processing</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Cloud Data Platforms</div>
+                        <ul class="card-list">
+                            <li>AWS: S3, Glue, Redshift, Lambda</li>
+                            <li>GCP BigQuery performance tuning</li>
+                            <li>Lakehouse & medallion architecture</li>
+                            <li>Multi-cloud deployment patterns</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Analytics Engineering</div>
+                        <ul class="card-list">
+                            <li>Power BI/Tableau enterprise BI</li>
+                            <li>40% stakeholder reporting reduction</li>
+                            <li>DACH regional data governance</li>
+                            <li>Cross-functional analytics roadmap</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <div class="container">
+                <h2>Experience</h2>
+                <p class="section-subtitle">Enterprise delivery across international teams</p>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-title">Data Analyst</div>
+                        <div class="card-meta">Beiersdorf AG · Hamburg, Germany</div>
+                        <div class="card-meta">Nov 2023 – Jul 2024</div>
+                        <ul class="card-list">
+                            <li>Production ETL pipelines: 2TB monthly (15 EU markets)</li>
+                            <li>Power BI dashboards: accelerated reporting 40%</li>
+                            <li>Established DACH data governance framework</li>
+                            <li>Cross-functional EU stakeholder alignment</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Application Developer</div>
+                        <div class="card-meta">EdithTech · India</div>
+                        <div class="card-meta">Jul 2022 – Feb 2023</div>
+                        <ul class="card-list">
+                            <li>Node.js microservices: 10k+ daily requests</li>
+                            <li>MySQL performance engineering (-25% latency)</li>
+                            <li>CI/CD pipeline optimization (-30% deploy time)</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Application Engineer</div>
+                        <div class="card-meta">EMS Pvt Ltd · India</div>
+                        <div class="card-meta">Oct 2020 – Nov 2021</div>
+                        <ul class="card-list">
+                            <li>Flutter/Firebase production MVPs (-30% dev cycle)</li>
+                            <li>End-to-end QA engineering systems</li>
+                            <li>Stakeholder demo & iteration workflows</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="education">
+            <div class="container">
+                <h2>Education</h2>
+                <p class="section-subtitle">Academic foundation meets production reality</p>
+                <div class="grid education-grid">
+                    <div class="card">
+                        <div class="card-title">MSc Data Science</div>
+                        <div class="card-meta">Technical University of Hamburg, Germany</div>
+                        <div class="card-meta">2023 – 2024 (Medical withdrawal)</div>
+                        <ul class="card-list">
+                            <li>Distributed systems & advanced ML</li>
+                            <li>Data engineering specialization track</li>
+                            <li>International research collaboration</li>
+                            <li>German technical university excellence</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">BTech Computer Science</div>
+                        <div class="card-meta">RGPV University, India</div>
+                        <div class="card-meta">2018 – 2022</div>
+                        <ul class="card-list">
+                            <li>Full-stack software engineering</li>
+                            <li>Algorithms, databases, systems</li>
+                            <li>Production software engineering capstone</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact</h2>
+                <p class="section-subtitle">Ready for Data Engineering challenges worldwide</p>
+                <div class="contact-details">
+                    <div><strong>Location:</strong> Indore, Madhya Pradesh, India</div>
+                    <div><strong>Phone:</strong> <a href="tel:+919993267676" style="color: var(--accent-gold); text-decoration: none;">+91 9993267676</a></div>
+                    <div><strong>Email:</strong> <a href="mailto:ninadsharma18@gmail.com" style="color: var(--accent-gold); text-decoration: none;">ninadsharma18@gmail.com</a></div>
+                    <div><strong>Availability:</strong> Immediate · Relocation ready</div>
+                </div>
+                <div class="cta-group">
+                    <a href="mailto:ninadsharma18@gmail.com" class="btn btn-primary">Send Message</a>
+                    <a href="https://github.com/ninadsharma" target="_blank" class="btn btn-secondary">GitHub</a>
+                    <a href="https://linkedin.com/in/ninadsharma" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<!-- Experience Section -->
-<section id="experience">
-    <h2 class="section-title">Experience</h2>
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-content">
-                <h3>Data Engineer</h3>
-                <p class="company">Beiersdorf (Germany) | Hamburg, Germany</p>
-                <p class="duration">Nov 2023 – July 2024</p>
-                <p>Selected for engagement with German HQ to modernize marketing data infrastructure across DACH region.</p>
-                <div style="margin-top: 1rem;">
-                    <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
-                        <li>Designed and maintained automated ETL pipelines using Python and SQL, processing 2TB+ monthly consumer datasets from 15+ markets</li>
-                        <li>Reduced manual reporting time by 40% and enabled real-time decision-making with scalable data models</li>
-                        <li>Built analytics dashboards in Power BI/Tableau, influencing product strategy with actionable insights from multi-source data aggregation</li>
-                        <li>Implemented enterprise-grade data governance standards across pipelines, ensuring compliance for 50+ stakeholder reports across Europe</li>
-                        <li>Collaborated with cross-functional teams across 3+ time zones, translating business requirements into optimized technical solutions</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-content">
-                <h3>Data Analyst</h3>
-                <p class="company">EdithTech Infrastructure | India</p>
-                <p class="duration">Feb 2023 – Nov 2023</p>
-                <p>Developed and maintained analytics dashboards for internal infrastructure tools supporting 500+ concurrent users.</p>
-                <div style="margin-top: 1rem;">
-                    <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
-                        <li>Performed advanced SQL optimization on core application queries, reducing latency by 25% (200ms to 150ms)</li>
-                        <li>Improved dashboard performance for real-time analytics across 1M+ data points</li>
-                        <li>Created data pipelines and ETL workflows for multi-source data aggregation, automating manual reporting processes</li>
-                        <li>Built CI/CD pipelines for automated testing and data validation, reducing deployment cycle time by 30%</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-content">
-                <h3>Data Analyst & Backend Developer</h3>
-                <p class="company">EdithTech Infrastructure | India</p>
-                <p class="duration">July 2022 – Feb 2023</p>
-                <p>Analyzed complex datasets and derived actionable insights using SQL and Python for business stakeholders.</p>
-                <div style="margin-top: 1rem;">
-                    <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
-                        <li>Optimized database queries and implemented indexing strategies, improving query performance by 25% for analytics workflows</li>
-                        <li>Developed backend microservices using Node.js, handling 10,000+ daily requests with robust monitoring</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-content">
-                <h3>Mobile Developer</h3>
-                <p class="company">EMS Pvt. Ltd. | India</p>
-                <p class="duration">Oct 2020 – Nov 2021</p>
-                <p>Built and deployed cross-platform mobile prototypes using Flutter & Firebase.</p>
-                <div style="margin-top: 1rem;">
-                    <ul style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">
-                        <li>Reduced MVP development time by 30% and delivered to market in 6 weeks</li>
-                        <li>Designed user flows and technical specifications in Figma for 8-person engineering team</li>
-                        <li>Conducted stakeholder presentations to validate product-market fit with 50+ beta testers</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects">
-    <h2 class="section-title">Domains</h2>
-    <div class="projects-grid">
-        <div class="project-card">
-            <div class="project-image">📊</div>
-            <div class="project-content">
-                <h3>Data Engineering & Analytics</h3>
-                <p>ETL/ELT pipelines, data modeling, and cloud-based analytics solutions processing terabyte-scale datasets with 40% efficiency gains.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">AWS</span>
-                    <span class="tech-tag">Power BI</span>
-                </div>
-            </div>
-        </div>
-        <div class="project-card">
-            <div class="project-image">⚡</div>
-            <div class="project-content">
-                <h3>Backend API Development</h3>
-                <p>RESTful APIs and server-side applications using Node.js and SQL databases for scalable web solutions handling 10,000+ daily requests.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">Microservices</span>
-                </div>
-            </div>
-        </div>
-        <div class="project-card">
-            <div class="project-image">📱</div>
-            <div class="project-content">
-                <h3>Mobile App Development</h3>
-                <p>Cross-platform mobile applications built with Flutter and Firebase, focusing on user-friendly interfaces and robust functionality.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Flutter</span>
-                    <span class="tech-tag">Firebase</span>
-                    <span class="tech-tag">Dart</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact">
-    <h2 class="section-title">Let’s Connect</h2>
-    <div class="contact-content">
-        <p>I'm always interested in hearing about new Data Engineering and Analytics opportunities, collaborating on innovative projects, or discussing the latest in data infrastructure and scalable systems.</p>
-        <div class="contact-links">
-            <a href="mailto:ninadsharma18@gmail.com" class="contact-link">
-                <span>📧</span>
-                <span>Email</span>
-            </a>
-            <a href="https://linkedin.com/in/ninadsharma" class="contact-link" target="_blank">
-                <span>💼</span>
-                <span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/ninadsharma" class="contact-link" target="_blank">
-                <span>💻</span>
-                <span>GitHub</span>
-            </a>
-            <a href="tel:+919993267676" class="contact-link">
-                <span>📱</span>
-                <span>+91 99932 67676</span>
-            </a>
-        </div>
-        <p style="margin-top: 2rem; color: var(--text-secondary);">
-            Based in Indore, India | Open to Relocation
-        </p>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer>
-    <p>&copy; 2025 Ninad Sharma. Built with passion and modern web technologies.</p>
-</footer>
-
-<script>
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href')).scrollIntoView({ 
+                    behavior: 'smooth', block: 'start' 
                 });
-            }
-        });
-    });
-
-    // Add scroll effect to navigation
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('nav');
-        if (window.scrollY > 100) {
-            nav.style.background = 'rgba(10, 10, 10, 0.98)';
-            nav.style.padding = '1rem 5%';
-        } else {
-            nav.style.background = 'rgba(10, 10, 10, 0.95)';
-            nav.style.padding = '1.5rem 5%';
-        }
-    });
-
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements that should animate on scroll
-    document.querySelectorAll('.timeline-item, .project-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-
-    // Add ripple effect to buttons
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 93;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
             });
-        }
-    });
-});
-
-</script>
-</body> </html>
+        });
+        
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -100px 0px' });
+        
+        document.querySelectorAll('section').forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
