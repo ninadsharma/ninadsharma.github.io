@@ -1,318 +1,697 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="$__base">
-    <title>Ninad Sharma - Data Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-main: #111723;
-            --bg-card: rgba(17, 23, 35, 0.85);
-            --text-main: #F8F9FA;
-            --text-muted: #B0B7C3;
-            --accent-gold: #F8B909;
-            --accent-bronze: #AF9A4A;
-            --accent-orange: #F38909;
-            --border-subtle: rgba(175, 154, 74, 0.2);
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(243,137,9,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(175,154,74,0.08) 0%, transparent 50%),
-                linear-gradient(135deg, #0F1620 0%, var(--bg-main) 50%, #1A2335 100%);
-            color: var(--text-main); line-height: 1.65; position: relative; 
-            overflow-x: hidden;
-        }
-        body::before {
-            content: '';
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: 
-                conic-gradient(from 0deg at 30% 30%, transparent 0deg, rgba(243,137,9,0.03) 90deg, transparent 180deg),
-                conic-gradient(from 180deg at 70% 70%, transparent 180deg, rgba(175,154,74,0.02) 270deg, transparent 360deg);
-            z-index: -2; pointer-events: none;
-        }
-        
-        nav { 
-            position: fixed; top: 0; width: 100%; background: rgba(17,23,35,0.96); 
-            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle); 
-            z-index: 100; padding: 20px 0; 
-        }
-        .container { max-width: 1150px; margin: 0 auto; padding: 0 28px; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.35rem; font-weight: 600; background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .nav-links { display: flex; gap: 32px; list-style: none; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 400; transition: all 0.3s; position: relative; }
-        .nav-links a:hover { color: var(--accent-gold); }
-        .nav-links a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange)); transition: width 0.3s; }
-        .nav-links a:hover::after { width: 100%; }
-        
-        main { margin-top: 104px; }
-        section { padding: 110px 0; }
-        .intro { padding-top: 140px; padding-bottom: 180px; text-align: center; }
-        h1 { 
-            font-size: clamp(3rem, 8vw, 5.25rem); font-weight: 700; 
-            background: linear-gradient(135deg, var(--text-main) 0%, var(--accent-gold) 60%); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-            margin-bottom: 24px; letter-spacing: -0.03em;
-        }
-        .intro-lead { 
-            font-size: clamp(1.2rem, 3vw, 1.5rem); color: var(--text-muted); 
-            max-width: 680px; margin: 0 auto 36px; font-weight: 400; 
-        }
-        .metric { 
-            display: inline-flex; flex-direction: column; align-items: center; 
-            margin: 0 16px; padding: 24px 20px; background: var(--bg-card); 
-            border-radius: 16px; border: 1px solid var(--border-subtle); min-width: 140px;
-        }
-        .metric-value { font-size: 1.6rem; font-weight: 700; color: var(--accent-gold); margin-bottom: 4px; }
-        .metric-label { font-size: 0.88rem; color: var(--text-muted); }
-        .cta-group { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 56px; }
-        .btn { 
-            padding: 16px 36px; border: 1px solid var(--border-subtle); border-radius: 12px; 
-            text-decoration: none; font-weight: 500; font-size: 1rem; transition: all 0.3s; 
-            display: inline-flex; align-items: center; gap: 10px;
-        }
-        .btn-primary { background: rgba(243,137,9,0.12); color: var(--text-main); border-color: rgba(243,137,9,0.4); }
-        .btn-primary:hover { background: rgba(243,137,9,0.25); border-color: var(--accent-orange); transform: translateY(-2px); }
-        .btn-secondary { background: transparent; color: var(--text-muted); }
-        .btn-secondary:hover { background: rgba(175,154,74,0.12); color: var(--text-main); border-color: var(--accent-bronze); }
-        
-        h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; color: var(--text-main); margin-bottom: 32px; text-align: center; }
-        .section-subtitle { text-align: center; color: var(--text-muted); max-width: 700px; margin: 0 auto 72px; font-size: 1.15rem; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; margin-top: 64px; }
-        .card { 
-            background: var(--bg-card); backdrop-filter: blur(16px); 
-            padding: 40px; border-radius: 24px; border: 1px solid var(--border-subtle); 
-            transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
-        }
-        .card:hover { 
-            transform: translateY(-8px) scale(1.02); border-color: rgba(175,154,74,0.4); 
-            box-shadow: 0 32px 80px rgba(243,137,9,0.15);
-        }
-        .card-title { font-size: 1.4rem; font-weight: 600; color: var(--text-main); margin-bottom: 20px; }
-        .card-meta { color: var(--accent-bronze); font-size: 1rem; margin-bottom: 24px; font-weight: 500; }
-        .card-list { list-style: none; color: var(--text-muted); }
-        .card-list li { margin-bottom: 16px; padding-left: 24px; position: relative; }
-        .card-list li::before { 
-            content: ''; position: absolute; left: 0; top: 4px; width: 6px; height: 6px; 
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange)); 
-            border-radius: 50%; 
-        }
-        
-        .education-grid { grid-template-columns: 1fr; max-width: 750px; margin: 0 auto; gap: 28px; }
-        
-        .contact { text-align: center; padding-bottom: 160px; }
-        .contact-details { 
-            background: var(--bg-card); padding: 40px; border-radius: 20px; 
-            border: 1px solid var(--border-subtle); max-width: 500px; margin: 0 auto 48px;
-        }
-        .contact-details strong { color: var(--accent-gold); }
-        
-        /* Scroll animations */
-        section { opacity: 0; transform: translateY(48px); transition: all 0.8s cubic-bezier(0.34,1.56,0.64,1); }
-        section.visible { opacity: 1; transform: translateY(0); }
-        
-        @media (max-width: 768px) { 
-            .container { padding: 0 24px; } 
-            .cta-group { flex-direction: column; align-items: center; gap: 16px; }
-            .metric { margin: 8px 0; }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="container">
-            <div class="nav-container">
-                <div class="logo">Ninad Sharma</div>
-                <ul class="nav-links">
-                    <li><a href="#intro">Intro</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <main>
-        <section id="intro" class="intro">
-            <div class="container">
-                <h1>Data Engineer</h1>
-                <p class="intro-lead">
-                    Engineering scalable data systems that drive business outcomes. 
-                    <strong>Ex-Beiersdorf Germany</strong>—delivered 2TB ETL pipelines serving 15 EU markets 
-                    with <strong>40% efficiency gains</strong> through cloud-native architecture.
-                </p>
-                <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin: 48px 0;">
-                    <div class="metric">
-                        <div class="metric-value">2TB+</div>
-                        <div class="metric-label">Monthly Processing</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">40%</div>
-                        <div class="metric-label">Efficiency Gain</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">15</div>
-                        <div class="metric-label">Markets Served</div>
-                    </div>
-                </div>
-                <div class="cta-group">
-                    <a href="mailto:ninadsharma18@gmail.com" class="btn btn-primary">📧 Discuss Opportunities</a>
-                    <a href="https://linkedin.com/in/ninadsharma" target="_blank" class="btn btn-secondary">💼 View Profile</a>
-                </div>
-            </div>
-        </section>
-        
-        <section id="skills">
-            <div class="container">
-                <h2>Technical Stack</h2>
-                <p class="section-subtitle">Production data engineering capabilities</p>
-                <div class="grid">
-                    <div class="card">
-                        <div class="card-title">Data Pipelines & Processing</div>
-                        <ul class="card-list">
-                            <li>ETL/ELT orchestration (Airflow DAGs)</li>
-                            <li>Advanced SQL optimization & analytics</li>
-                            <li>PySpark/Pandas at terabyte scale</li>
-                            <li>15-market parallel processing</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <div class="card-title">Cloud Data Platforms</div>
-                        <ul class="card-list">
-                            <li>AWS: S3, Glue, Redshift, Lambda</li>
-                            <li>GCP BigQuery performance tuning</li>
-                            <li>Lakehouse & medallion architecture</li>
-                            <li>Multi-cloud deployment patterns</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <div class="card-title">Analytics Engineering</div>
-                        <ul class="card-list">
-                            <li>Power BI/Tableau enterprise BI</li>
-                            <li>40% stakeholder reporting reduction</li>
-                            <li>DACH regional data governance</li>
-                            <li>Cross-functional analytics roadmap</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="experience">
-            <div class="container">
-                <h2>Experience</h2>
-                <p class="section-subtitle">Enterprise delivery across international teams</p>
-                <div class="grid">
-                    <div class="card">
-                        <div class="card-title">Data Analyst</div>
-                        <div class="card-meta">Beiersdorf AG · Hamburg, Germany</div>
-                        <div class="card-meta">Nov 2023 – Jul 2024</div>
-                        <ul class="card-list">
-                            <li>Production ETL pipelines: 2TB monthly (15 EU markets)</li>
-                            <li>Power BI dashboards: accelerated reporting 40%</li>
-                            <li>Established DACH data governance framework</li>
-                            <li>Cross-functional EU stakeholder alignment</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <div class="card-title">Application Developer</div>
-                        <div class="card-meta">EdithTech · India</div>
-                        <div class="card-meta">Jul 2022 – Feb 2023</div>
-                        <ul class="card-list">
-                            <li>Node.js microservices: 10k+ daily requests</li>
-                            <li>MySQL performance engineering (-25% latency)</li>
-                            <li>CI/CD pipeline optimization (-30% deploy time)</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <div class="card-title">Application Engineer</div>
-                        <div class="card-meta">EMS Pvt Ltd · India</div>
-                        <div class="card-meta">Oct 2020 – Nov 2021</div>
-                        <ul class="card-list">
-                            <li>Flutter/Firebase production MVPs (-30% dev cycle)</li>
-                            <li>End-to-end QA engineering systems</li>
-                            <li>Stakeholder demo & iteration workflows</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="education">
-            <div class="container">
-                <h2>Education</h2>
-                <p class="section-subtitle">Academic foundation meets production reality</p>
-                <div class="grid education-grid">
-                    <div class="card">
-                        <div class="card-title">MSc Data Science</div>
-                        <div class="card-meta">Technical University of Hamburg, Germany</div>
-                        <div class="card-meta">2023 – 2024 (Medical withdrawal)</div>
-                        <ul class="card-list">
-                            <li>Distributed systems & advanced ML</li>
-                            <li>Data engineering specialization track</li>
-                            <li>International research collaboration</li>
-                            <li>German technical university excellence</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <div class="card-title">BTech Computer Science</div>
-                        <div class="card-meta">RGPV University, India</div>
-                        <div class="card-meta">2018 – 2022</div>
-                        <ul class="card-list">
-                            <li>Full-stack software engineering</li>
-                            <li>Algorithms, databases, systems</li>
-                            <li>Production software engineering capstone</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Contact</h2>
-                <p class="section-subtitle">Ready for Data Engineering challenges worldwide</p>
-                <div class="contact-details">
-                    <div><strong>Location:</strong> Indore, Madhya Pradesh, India</div>
-                    <div><strong>Phone:</strong> <a href="tel:+919993267676" style="color: var(--accent-gold); text-decoration: none;">+91 9993267676</a></div>
-                    <div><strong>Email:</strong> <a href="mailto:ninadsharma18@gmail.com" style="color: var(--accent-gold); text-decoration: none;">ninadsharma18@gmail.com</a></div>
-                    <div><strong>Availability:</strong> Immediate · Relocation ready</div>
-                </div>
-                <div class="cta-group">
-                    <a href="mailto:ninadsharma18@gmail.com" class="btn btn-primary">Send Message</a>
-                    <a href="https://github.com/ninadsharma" target="_blank" class="btn btn-secondary">GitHub</a>
-                    <a href="https://linkedin.com/in/ninadsharma" target="_blank" class="btn btn-secondary">LinkedIn</a>
-                </div>
-            </div>
-        </section>
-    </main>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                document.querySelector(a.getAttribute('href')).scrollIntoView({ 
-                    behavior: 'smooth', block: 'start' 
-                });
-            });
-        });
-        
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.12, rootMargin: '0px 0px -100px 0px' });
-        
-        document.querySelectorAll('section').forEach(s => observer.observe(s));
-    </script>
-</body>
-</html>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ninad Sharma | Data Engineer</title>
+
+<meta name="description"
+content="Data Engineer with experience at Beiersdorf Germany. Building scalable ETL pipelines, analytics platforms and Python backend systems using Python, SQL, PySpark, Apache Airflow and BigQuery.">
+
+<meta name="keywords"
+content="Data Engineer, Python, SQL, PySpark, Apache Spark, Airflow, BigQuery, FastAPI, Germany, Luxembourg">
+
+<meta name="author"
+content="Ninad Sharma">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+
+--bg:#FAF8F3;
+--surface:#FFFFFF;
+--text:#222222;
+--secondary:#6C675F;
+--accent:#6A2735;
+--border:#E7E2DA;
+--hover:#4F1D28;
+
+--max:1180px;
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+background:var(--bg);
+
+color:var(--text);
+
+font-family:Inter,sans-serif;
+
+line-height:1.7;
+
+font-size:16px;
+
+-webkit-font-smoothing:antialiased;
+
+}
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+transition:.25s;
+
+}
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+.container{
+
+width:min(92%,var(--max));
+
+margin:auto;
+
+}
+
+section{
+
+padding:90px 0;
+
+}
+
+h1{
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:72px;
+
+letter-spacing:1px;
+
+font-weight:700;
+
+line-height:.9;
+
+}
+
+h2{
+
+font-size:14px;
+
+font-weight:700;
+
+letter-spacing:3px;
+
+color:var(--accent);
+
+text-transform:uppercase;
+
+margin-bottom:35px;
+
+}
+
+h3{
+
+font-size:26px;
+
+margin-bottom:8px;
+
+}
+
+p{
+
+color:var(--secondary);
+
+}
+
+.small{
+
+font-size:14px;
+
+color:var(--secondary);
+
+}
+
+.divider{
+
+width:70px;
+
+height:2px;
+
+background:var(--accent);
+
+margin:30px 0;
+
+opacity:.8;
+
+}
+
+/* ===========================
+NAVBAR
+=========================== */
+
+header{
+
+position:sticky;
+
+top:0;
+
+z-index:999;
+
+background:rgba(250,248,243,.93);
+
+backdrop-filter:blur(10px);
+
+border-bottom:1px solid var(--border);
+
+}
+
+nav{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+height:78px;
+
+}
+
+.logo{
+
+font-weight:700;
+
+font-size:18px;
+
+letter-spacing:2px;
+
+}
+
+.menu{
+
+display:flex;
+
+gap:36px;
+
+align-items:center;
+
+}
+
+.menu a{
+
+font-size:14px;
+
+font-weight:500;
+
+position:relative;
+
+}
+
+.menu a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-6px;
+
+width:0;
+
+height:2px;
+
+background:var(--accent);
+
+transition:.25s;
+
+}
+
+.menu a:hover::after{
+
+width:100%;
+
+}
+
+.resume-btn{
+
+padding:11px 22px;
+
+border:1px solid var(--accent);
+
+color:var(--accent);
+
+font-weight:600;
+
+border-radius:40px;
+
+}
+
+.resume-btn:hover{
+
+background:var(--accent);
+
+color:white;
+
+}
+
+/* ===========================
+HERO
+=========================== */
+
+.hero{
+
+min-height:92vh;
+
+display:flex;
+
+align-items:center;
+
+}
+
+.hero-grid{
+
+display:grid;
+
+grid-template-columns:1.3fr .7fr;
+
+gap:70px;
+
+align-items:center;
+
+}
+
+.hero-left h1{
+
+margin-bottom:18px;
+
+}
+
+.role{
+
+font-size:18px;
+
+letter-spacing:4px;
+
+font-weight:600;
+
+color:var(--accent);
+
+text-transform:uppercase;
+
+margin-bottom:24px;
+
+}
+
+.tech-stack{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:12px;
+
+margin:32px 0;
+
+}
+
+.tech{
+
+padding:8px 18px;
+
+border:1px solid var(--border);
+
+border-radius:50px;
+
+font-size:13px;
+
+font-weight:500;
+
+background:white;
+
+}
+
+.hero-text{
+
+font-size:18px;
+
+max-width:700px;
+
+margin-bottom:30px;
+
+}
+
+.button-group{
+
+display:flex;
+
+gap:18px;
+
+margin-top:40px;
+
+}
+
+.primary{
+
+background:var(--accent);
+
+color:white;
+
+padding:14px 26px;
+
+border-radius:40px;
+
+font-weight:600;
+
+}
+
+.primary:hover{
+
+background:var(--hover);
+
+}
+
+.secondary-btn{
+
+padding:14px 26px;
+
+border:1px solid var(--border);
+
+background:white;
+
+border-radius:40px;
+
+font-weight:600;
+
+}
+
+.secondary-btn:hover{
+
+border-color:var(--accent);
+
+color:var(--accent);
+
+}
+
+.hero-right{
+
+display:flex;
+
+justify-content:flex-end;
+
+}
+
+.profile-card{
+
+background:white;
+
+padding:42px;
+
+border:1px solid var(--border);
+
+border-radius:18px;
+
+width:100%;
+
+max-width:340px;
+
+}
+
+.profile-card h4{
+
+font-size:13px;
+
+letter-spacing:2px;
+
+color:var(--accent);
+
+text-transform:uppercase;
+
+margin-bottom:18px;
+
+}
+
+.profile-card ul{
+
+list-style:none;
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+.profile-card li{
+
+display:flex;
+
+justify-content:space-between;
+
+font-size:15px;
+
+border-bottom:1px solid var(--border);
+
+padding-bottom:12px;
+
+}
+
+.value{
+
+font-weight:600;
+
+color:var(--text);
+
+}
+
+.highlight{
+
+font-weight:600;
+
+color:var(--accent);
+
+}
+
+/* ===========================
+INTRO
+=========================== */
+
+.intro{
+
+padding-top:20px;
+
+}
+
+.intro p{
+
+font-size:17px;
+
+max-width:900px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container">
+
+<nav>
+
+<div class="logo">
+
+NINAD SHARMA
+
+</div>
+
+<div class="menu">
+
+<a href="#about">About</a>
+
+<a href="#experience">Experience</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#skills">Skills</a>
+
+<a href="resume.pdf" class="resume-btn" target="_blank">
+Resume
+</a>
+
+</div>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-grid">
+
+<div class="hero-left">
+
+<div class="role">
+Data Engineer
+</div>
+
+<h1>
+Building Reliable<br>
+Data Platforms.
+</h1>
+
+<div class="divider"></div>
+
+<p class="hero-text">
+
+Data Engineer with experience designing production ETL pipelines,
+analytics platforms and Python backend services across Germany and
+India. Passionate about transforming complex datasets into reliable,
+scalable systems that drive business decisions.
+
+</p>
+
+<div class="tech-stack">
+
+<div class="tech">Python</div>
+
+<div class="tech">SQL</div>
+
+<div class="tech">Apache Spark</div>
+
+<div class="tech">PySpark</div>
+
+<div class="tech">Airflow</div>
+
+<div class="tech">BigQuery</div>
+
+<div class="tech">FastAPI</div>
+
+<div class="tech">AWS</div>
+
+<div class="tech">Azure</div>
+
+</div>
+
+<div class="button-group">
+
+<a href="resume.pdf" class="primary" target="_blank">
+
+Download Resume
+
+</a>
+
+<a href="https://github.com/ninadsharma"
+class="secondary-btn"
+target="_blank">
+
+GitHub
+
+</a>
+
+<a href="https://linkedin.com/in/ninadsharma"
+class="secondary-btn"
+target="_blank">
+
+LinkedIn
+
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="profile-card">
+
+<h4>Profile</h4>
+
+<ul>
+
+<li>
+
+<span>Location</span>
+
+<span class="value">Indore, India</span>
+
+</li>
+
+<li>
+
+<span>Availability</span>
+
+<span class="value">Immediate</span>
+
+</li>
+
+<li>
+
+<span>Relocation</span>
+
+<span class="value">Germany • Luxembourg • EU</span>
+
+</li>
+
+<li>
+
+<span>Experience</span>
+
+<span class="value">2+ Years</span>
+
+</li>
+
+<li>
+
+<span>Latest Role</span>
+
+<span class="highlight">Beiersdorf AG</span>
+
+</li>
+
+<li>
+
+<span>Focus</span>
+
+<span class="value">Data Engineering</span>
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
